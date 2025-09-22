@@ -1,0 +1,14 @@
+[
+  {
+    "arguments": [
+      "/usr/sbin/g++",
+      "-c",
+      "-std=c++20",
+      "-g",
+      "-Wall",
+      "main.cpp"
+    ],
+    "directory": "/home/zhaohang/repository/algorithm/luogu/simulation_and_high_precision/p1042",
+    "file": "/home/zhaohang/repository/algorithm/luogu/simulation_and_high_precision/p1042/main.cpp"
+  }
+]

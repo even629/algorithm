@@ -1,39 +1,29 @@
-#include <stdio.h>
+#include <numeric>
 #include <vector>
+
 using std::vector;
-
-bool notCoprime(int x, int y) {
-  int t;
-  while (y != 0) {
-    t = y;
-    y = x % y;
-    x = t;
-  }
-  return x != 1; // GCD != 1 就不是互质
-}
-
-int gcd_fn(int x, int y) {
-  while (y != 0) {
-    int t = y;
-    y = x % y;
-    x = t;
-  }
-  return x;
-}
 
 class Solution {
 public:
   vector<int> replaceNonCoprimes(vector<int> &nums) {
-    // 滑动窗口，从左到右，从右到左，直到没有可以合并的才停止
+    int n = nums.size();
+    // 用 nums[0..top] 作为“栈”
+    int top = 0;
+    for (int i = 1; i < n; i++) {
+      // std::gcd最大公约数 greatest common divisor
+      // 如果栈顶 nums[top] 和当前 nums[i] 不是互质，就合并.
+      // 一个数可能会和多个前面的数连续不互质。
+      // 所以必须不断往回合并，直到和栈顶互质为止。
+      while (top >= 0 and std::gcd(nums[top], nums[i]) > 1) {
+        // std::lcm最小公倍数 least common multiple
+        nums[i] = std::lcm(nums[top], nums[i]);
+        // 弹出栈顶，继续和新的栈顶比较
+        top--;
+      }
+      // 把合并后的结果压回栈顶
+      nums[++top] = nums[i];
+    }
+    nums.resize(top + 1);
+    return nums;
   }
 };
-
-int main() {
-  Solution s;
-  vector<int> nums = {6, 4, 3, 2, 7, 6, 2};
-  s.replaceNonCoprimes(nums);
-  for (auto it = nums.begin(); it != nums.end(); it++) {
-    printf("%d ", *it);
-  }
-  return 0;
-}
