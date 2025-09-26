@@ -1,0 +1,14 @@
+[
+  {
+    "arguments": [
+      "/usr/sbin/g++",
+      "-c",
+      "-std=c++20",
+      "-g",
+      "-Wall",
+      "main.cpp"
+    ],
+    "directory": "/home/zhaohang/repository/algorithm/leetcode/p166",
+    "file": "/home/zhaohang/repository/algorithm/leetcode/p166/main.cpp"
+  }
+]
