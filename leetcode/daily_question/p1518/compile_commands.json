@@ -1,0 +1,14 @@
+[
+  {
+    "arguments": [
+      "/usr/sbin/g++",
+      "-c",
+      "-g",
+      "-Wall",
+      "-std=c++20",
+      "main.cpp"
+    ],
+    "directory": "/home/zhaohang/repository/algorithm/leetcode/daily_question/p1518",
+    "file": "/home/zhaohang/repository/algorithm/leetcode/daily_question/p1518/main.cpp"
+  }
+]
